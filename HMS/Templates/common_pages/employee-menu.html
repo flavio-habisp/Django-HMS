@@ -1,0 +1,45 @@
+<style>
+    .contentCircle { width: 250px; border-radius: 100%; color: #222222; }
+     .CirItem {height: 80px;}
+
+     .CirItem i { font-size: 80px; position: absolute; top: 15%; left: 50%; margin-left: -90px; color: #000000; opacity: 0.1; }
+     .CirItem .title {  top: 15%; left: 50%;     margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 2rem;}
+</style>
+
+<div class="container">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'menu'%}"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item active" aria-current="page">Employee</li>
+        </ol>
+    </nav>
+</div> 
+<div class="container py-5 d-flex justify-content-center align-items-center">
+    <div class="list-group contentCircle justify-content-center align-items-center">
+        <a href="{% url 'employees'%}" class="list-group-item list-group-item-action d-flex justify-content-center align-items-center" aria-current="true">
+
+            <div class="CirItem title-box ">
+                <div class="title  "><span>Employee List
+                </span></div><i class="fas fa-users"></i>
+             </div>
+        </a>
+        <a href="{% url 'attendance' %}" class="list-group-item list-group-item-action d-flex justify-content-center align-items-center" aria-current="true">
+
+            <div class="CirItem title-box ">
+                <div class="title  "><span>Schedule</span></div><i class="far fa-address-book"></i>
+                <p>&nbsp;</p>
+             </div>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-center align-items-center" aria-current="true">
+
+            <div class="CirItem title-box ">
+                <div class="title  "><span>Attendance</span></div><i class="fas fa-user-clock"></i>
+                <p>&nbsp;</p>
+             </div>
+        </a>
+      </div>
+</div>

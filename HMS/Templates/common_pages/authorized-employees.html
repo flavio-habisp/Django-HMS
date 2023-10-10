@@ -1,4 +1,15 @@
-<div class="container py-5">
+
+    <div class="container">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'menu'%}"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'employee-menu'%}">Employee</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Employee List</li>
+            </ol>
+        </nav>
+    </div> 
+    <div class="container py-5">
 
     {% for message in messages %}
     <div class="alert alert-success" role="alert">

@@ -23,7 +23,7 @@ from .forms import *
 def register_page(request):
     form = CreateUserForm()
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('menu')
     else:
         if request.method == 'POST':
             form = CreateUserForm(request.POST)
@@ -99,7 +99,7 @@ def add_employee(request):
 
 def login_page(request):
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('menu')
     else:
         if request.method == "POST":
             username = request.POST.get('username')
@@ -109,13 +109,20 @@ def login_page(request):
 
             if user is not None:
                 login(request, user)
-                return redirect('home')
+                return redirect('menu')
             else:
                 messages.info(request, "Username or Password is incorrect")
 
         context = {}
         return render(request, 'accounts/login.html', context)
 
+def index(request):
+    role = str(request.user.groups.all()[0])
+    path = role + "/"
+    context = {
+        "role": role,
+    }
+    return render(request, path + 'menu.html', context)
 
 def logout_user(request):
     logout(request)
@@ -305,7 +312,7 @@ def employee_details(request, pk):
         employee.phoneNumber = request.POST.get("phoneNumber")
         user.save()
         employee.save()
-        return redirect("home")
+        return redirect("menu")
 
     role = str(request.user.groups.all()[0])
     path = role + "/"
@@ -388,7 +395,7 @@ def guest_profile(request, pk):
         guest.phoneNumber = request.POST.get("phoneNumber")
         tempUser.save()
         guest.save()
-        return redirect("home")
+        return redirect("menu")
     role = str(request.user.groups.all()[0])
     path = role + "/"
 
@@ -463,3 +470,27 @@ def completeTask(request, pk):
 
     }
     return render(request, path + "completeTask.html", context)
+
+def hotel_menu(request):
+    role = str(request.user.groups.all()[0])
+    path = role + "/"
+    context = {
+        "role": role,
+    }
+    return render(request, path + 'hotel-menu.html', context)
+    
+def rooms_menu(request):
+    role = str(request.user.groups.all()[0])
+    path = role + "/"
+    context = {
+        "role": role,
+    }
+    return render(request, path + 'rooms-menu.html', context)
+    
+def employee_menu(request):
+    role = str(request.user.groups.all()[0])
+    path = role + "/"
+    context = {
+        "role": role,
+    }
+    return render(request, path + 'employee-menu.html', context)

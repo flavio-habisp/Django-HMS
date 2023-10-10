@@ -1,3 +1,15 @@
+
+    <div class="container">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'menu'%}"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'employee-menu'%}">Employee</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'employees'%}">Employee List</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Add Employee </li>
+            </ol>
+        </nav>
+    </div> 
 <div class="container clear-fix">
     {{form.errors}}
     {{form2.errors}}
@@ -40,12 +52,6 @@
                 </div>
 
                 <div class="form-group pt-3">
-                    <label for="item-quantity"><b>Salary</b></label>
-                    <input type="number" step="any" class="form-control border border-secondary" id="id_salary"
-                        name="salary">
-                </div>
-
-                <div class="form-group pt-3">
                     <label for="item-quantity"><b>Password</b></label>
                     <input type="password" class="form-control border border-secondary" id="id_password1" value=""
                         name="password1">
@@ -63,10 +69,6 @@
         <div class="role-input">
             <label class="radio-inline mr-3 for=" id_ROLES_TYPES_0">
                 <input type="radio" name="ROLES_TYPES" value="manager" required id="id_ROLES_TYPES_0"> Manager
-            </label>
-
-            <label class="radio-inline mr-3 for=" id_ROLES_TYPES_1">
-                <input type="radio" name="ROLES_TYPES" value="receptionist" required id="id_ROLES_TYPES_1"> Receptionist
             </label>
 
             <label class="radio-inline mr-3 for=" id_ROLES_TYPES_2">
