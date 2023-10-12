@@ -116,6 +116,7 @@ def login_page(request):
         context = {}
         return render(request, 'accounts/login.html', context)
 
+@login_required(login_url='login')
 def index(request):
     role = str(request.user.groups.all()[0])
     path = role + "/"
