@@ -1,14 +1,9 @@
 <!--Admin Navbar-->
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg py-3 " role="navigation">
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark  py-3 " role="navigation">
     <div class="container">
-        <a href="" class="navbar-brand">
-
-            <h2 class="text-capitalize">
-                {{ request.user.first_name }} {{ request.user.last_name }} -
-                <small>
-                    {{ role }}
-                </small>
-            </h2>
+        <a class="navbar-brand" href="{% url 'menu'%}">
+          <img src="{% static '/images/logo.png' %}" width="50" height="50" alt="">
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarTags">
             <span class="navbar-toggler-icon"></span>
@@ -30,14 +25,9 @@
 
                         {% if role == 'admin' %}
 
-                        <a class="dropdown-item" href="{% url 'guests'%}">Guests</a>
                         <a class="dropdown-item" href="{% url 'employees'%}">Employees</a>
-                        <a class="dropdown-item" href="{% url 'events'%}">Events</a>
-                        <a class="dropdown-item" href="{% url 'bookings' %}">Bookings</a>
                         <a class="dropdown-item" href="{% url 'rooms' %}">Rooms</a>
                         <a class="dropdown-item" href="{% url 'room-services' %}">Room Services</a>
-                        <a class="dropdown-item" href="{% url 'announcements' %}">Announcements</a>
-                        <a class="dropdown-item" href="{% url 'refunds' %}">Refunds</a>
 
                         {% elif role == 'guest' %}
 
